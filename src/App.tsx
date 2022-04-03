@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  /*
+    typescript inferred this to be a number
+    const [number, setNumber] = useState(5);
+
+    But we can put explicit type annotation
+
+    but let typescript infer on it's own
+  */ 
+  const [number, setNumber] = useState<number>(5);
+
+  const changeNumber = () =>{
+    // error for : setNumber("10");
+    setNumber(10);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
