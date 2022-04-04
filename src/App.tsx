@@ -3,11 +3,11 @@ import './App.css';
 import List from './components/List';
 import AddToList from './components/AddToList';
 
-interface IState{
+export interface IState{
   people: {
     name: string
     age: number
-    url: string
+    img: string
     note?: string
   }[]; // <- we use to define an array of objects
 }
@@ -35,13 +35,13 @@ function App() {
     { 
       name : "LeBron James",
       age : 36,
-      url : "https://www.google.com",
+      img : "https://www.google.com",
       note : "Allergic to staying on same team " 
     },
     { 
       name : "Kobe Bryant",
       age : 32,
-      url : "https://www.google.com"
+      img : "https://www.google.com"
     },
   ]
   */
@@ -49,7 +49,7 @@ function App() {
   const [people, setPeople] = useState<IState["people"]>([{ 
     name : "LeBron James",
     age : 36,
-    url : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fwww.thebasketballnetwork.com%2Fwp-content%2Fuploads%2F2018%2F05%2FUSATSI_10853818.jpg%3Ffit%3D5683%252C3789%26ssl%3D1&f=1&nofb=1",
+    img : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fwww.thebasketballnetwork.com%2Fwp-content%2Fuploads%2F2018%2F05%2FUSATSI_10853818.jpg%3Ffit%3D5683%252C3789%26ssl%3D1&f=1&nofb=1",
     note : "Allergic to staying on same team " 
   }]);
 
@@ -57,7 +57,7 @@ function App() {
     <div className="App">
         <h1>People invited to my party</h1>
         <List people={people}/>
-        <AddToList />
+        <AddToList people={people} setPeople={setPeople}/>
     </div>
   );
 }

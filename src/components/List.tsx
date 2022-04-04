@@ -1,13 +1,14 @@
 import React from 'react'
+import {IState as IProps} from '../App';
 
-interface IProps{
-    people: {
-      name: string
-      age: number
-      url: string
-      note?: string
-    }[]; // <- we use to define an array of objects
-}
+// interface IProps{
+//     people: {
+//       name: string
+//       age: number
+//       url: string
+//       note?: string
+//     }[]; // <- we use to define an array of objects
+// }
 
 const List: React.FC<IProps> = ({people}) =>{
     // we want to return an array of JSX elements -> JSX.Element[]
@@ -15,7 +16,7 @@ const List: React.FC<IProps> = ({people}) =>{
         return people.map((person) =>(
             <li key={person.name} className="List">
                 <div className="List-header">
-                    <img className="List-img" src={person.url} alt={person.name}/>
+                    <img className="List-img" src={person.img} alt={person.name}/>
                     <h2>{person.name}</h2>
                 </div>
 
